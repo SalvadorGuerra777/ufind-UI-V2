@@ -2,7 +2,6 @@ package social.ufind.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.Chat
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -16,11 +15,7 @@ sealed class BottomBarScreen(
         route = "home",
         title = "Inicio",
         icon = Icons.Default.Home
-    )    object Chat: BottomBarScreen(
-        route = "ContactsScreen",
-        title = "Chat",
-        icon = Icons.Default.Chat
-    )    object SavedPosts: BottomBarScreen(
+    ) object SavedPosts: BottomBarScreen(
         route = "savedPosts",
         title = "Guardados",
         icon = Icons.Default.Bookmark

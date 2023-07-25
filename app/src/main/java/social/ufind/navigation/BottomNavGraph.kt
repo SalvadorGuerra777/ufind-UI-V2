@@ -6,14 +6,13 @@ import androidx.navigation.compose.composable
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import social.ufind.firebase.model.User
-import social.ufind.ui.screen.home.chat.ChatScreen
 import social.ufind.ui.screen.home.savedpost.SavedPostScreen
 import social.ufind.ui.screen.home.user.UserProfileScreen
 import social.ufind.ui.screen.home.post.PostScreen
 import social.ufind.ui.screen.home.post.add.AddPostScreen
 import social.ufind.ui.screen.home.post.add.map.MapScreen
-import social.ufind.ui.screen.home.chat.newchat.ChatScreen2
-import social.ufind.ui.screen.home.chat.newchat.ContactsScreen
+
+
 import social.ufind.ui.screen.home.user.settings.SettingsAccountScreen
 import social.ufind.ui.screen.home.user.settings.SettingsChangePassword
 import social.ufind.ui.screen.home.user.settings.SettingsPreferencesScreen
@@ -33,19 +32,10 @@ fun BottomNavGraph(navController: NavHostController) {
             val userJson = navBackStackEntry.arguments?.getString("user")
             // Convert json string to the User data class object
             val userObject = gson.fromJson(userJson, User::class.java)
-            ChatScreen2(otherUser = userObject) { navController.navigate(BottomBarScreen.Chat.route) }
-        }
-        composable(route = BottomBarScreen.Chat.route) {
-            //MainChatScreen(onClick = {navController.navigate(OptionsRoutes.ChatScreen.route)})
-            ContactsScreen (onClickGotoNewChat = { navController.navigate(OptionsRoutes.ChatScreen2.route) }, navController = navController)
+
         }
 
-
-        composable(route= OptionsRoutes.ChatScreen.route){
-            ChatScreen(onClickGoToMainChatScreen = {navController.navigate(BottomBarScreen.Chat.route)})
-        }
-
-        PostScreen.composable(this, navController)
+            PostScreen.composable(this, navController)
         AddPostScreen.composable(this, navController)
         SavedPostScreen.composable(this, navController)
         UserProfileScreen.composable(this, navController)

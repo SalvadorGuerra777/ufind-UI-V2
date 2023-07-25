@@ -26,7 +26,6 @@ fun UserInterfaceNavigation() {
 
     val navigationItem = listOf(
         BottomBarScreen.Home,
-        BottomBarScreen.Chat,
         BottomBarScreen.SavedPosts,
         BottomBarScreen.Profile
     )
